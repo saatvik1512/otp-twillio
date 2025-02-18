@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMS Sender</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send SMS</h1>
+        
+        <% if (message) { %>
+            <div class="alert success">
+                <%= message %>
+            </div>
+        <% } %>
+        
+        <% if (error) { %>
+            <div class="alert error">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form action="/send-sms" method="POST">
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="tel" name="phone" required 
+                    placeholder="Enter phone number with country code">
+            </div>
+            
+            <div class="form-group">
+                <label>Message:</label>
+                <textarea name="message" required 
+                    placeholder="Enter your message"></textarea>
+            </div>
+            
+            <button type="submit">Send SMS</button>
+        </form>
+    </div>
+</body>
+</html>
